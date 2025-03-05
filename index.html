@@ -14,12 +14,14 @@ body {
   margin: 0;
   height: 100%;
 }
-#myProgress {
+#Progress {
   width: 100%;
   background-color: #ddd;
+   position: sticky;
+  top: 0;
 }
 
-#myBar {
+#progrBar {
   width: 1%;
   height: 30px;
   background-color: #04AA6D;
@@ -112,8 +114,8 @@ body {
     
 </head>
 <body class="background" onload="onload()">
-<div id="myProgress">
-  <div id="myBar"></div>
+<div id="Progress">
+  <div id="progrBar"></div>
 </div>
 <p id="progr"></p>
 <div class="typewriter">
@@ -135,7 +137,7 @@ function move() {
         var barpercent = 20;
   if (i == 0) {
     i = 0;
-    var elem = document.getElementById("myBar");
+    var elem = document.getElementById("progrBar");
     var width = 1;
     var id = setInterval(frame, 10);
     function frame() {
