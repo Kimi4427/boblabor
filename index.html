@@ -158,15 +158,17 @@ document.getElementById("progr").innerHTML = "Progress:  " + i + "%";
 
 function ismobile() {const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 if (isMobile) {
+setTimeout(function(){
+snackbar()
 document.getElementById("snackbar").innerHTML = "Mobile detected";
+}, 4000);
 setTimeout(function(){
 snackbar()
 document.getElementById("snackbar").innerHTML = "redirecting to mobile page...";
-}, 2000);
+}, 3000);
 setTimeout(function(){
-alert ("mobile...");
 window.location.href = "ismobile.html";
-}, 2000);
+}, 4000);
 }
 else {
 setTimeout(function(){
