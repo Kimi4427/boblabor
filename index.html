@@ -156,8 +156,16 @@ var x = setInterval(function() {
 document.getElementById("progr").innerHTML = "Progress:  " + i + "%";
 }, 1);
 
-function ismobile() {
+function ismobile() {const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+if (isMobile) {
+document.getElementById("snackbar").innerHTML = "Computer detected";
 window.location.href = "ismobile.html";
+}
+else {
+setTimeout(function(){
+document.getElementById("snackbar").innerHTML = "Computer detected";
+}, 2000);
+}
 }
 function onload() {
 move()
