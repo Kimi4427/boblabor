@@ -158,13 +158,20 @@ document.getElementById("progr").innerHTML = "Progress:  " + i + "%";
 
 function ismobile() {const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 if (isMobile) {
-document.getElementById("snackbar").innerHTML = "Computer detected";
+document.getElementById("snackbar").innerHTML = "Mobile detected";
+setTimeout(function(){
+snackbar()
+document.getElementById("snackbar").innerHTML = "redirecting to mobile page...";
+}, 2000);
+setTimeout(function(){
 window.location.href = "ismobile.html";
+}, 2000);
 }
 else {
 setTimeout(function(){
+snackbar()
 document.getElementById("snackbar").innerHTML = "Computer detected";
-}, 2000);
+}, 4000);
 }
 }
 function onload() {
