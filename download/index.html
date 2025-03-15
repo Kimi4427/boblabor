@@ -17,6 +17,15 @@ body {
   margin: 0;
   height: 100%;
 }
+#myWidget {
+display: flex;
+align-items: center;
+justify-content: center;
+width: 90vw;
+height: 85vh;
+background-color: white;
+flex-direction: row;
+}
 #snackbar {
   visibility: hidden;
   min-width: 250px;
@@ -64,13 +73,13 @@ body {
   100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 .container { 
-display: none; 
-align-items: center; 
-justify-content: center; 
-width: 90vw; 
-height: 85vh; 
-background-color: white; 
-flex-direction: row; 
+display: flex;
+align-items: center;
+justify-content: center;
+width: 90vw;
+height: 85vh;
+background-color: white;
+flex-direction: row;
 }
 #snackbar.show {
   visibility: visible;
