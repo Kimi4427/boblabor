@@ -6,7 +6,7 @@
       console.log(`Challenge Success ${token}`);
         setTimeout((){
             document.querySelector(".container").style.display = "flex";
-            document.getElementById("myWidget").style.display = none "none";
+            document.getElementById("myWidget").style.display = "none";
         }, 2000);
             
     },
