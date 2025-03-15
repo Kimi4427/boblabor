@@ -175,9 +175,9 @@ function move() {
     var width = 1;
     var id = setInterval(frame, 10);
     function frame() {
-      if (width >= 20) {
+      if (width >= 50) {
         clearInterval(id);
-        i = 20;
+        i = 50;
       } else {
         width++;
         elem.style.width = width + "%";
