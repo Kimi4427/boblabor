@@ -110,7 +110,7 @@ flex-direction: row;
         <button class="downlbtn"><i class="fa fa-download"></i> Download</button>
 <div id="snackbar">Current page: download</div>
 </div>
-
+<script src="main.js" ></script>
 <script>
 function snackbar() {
 document.getElementById("snackbar").innerHTML = 
@@ -122,19 +122,6 @@ document.getElementById("snackbar").innerHTML =
 function onload() {
 snackbar()
 }
-    window.onloadTurnstileCallback = function () {
-  turnstile.render("#myWidget", {
-    sitekey: "0x4AAAAAABA5K1oArqzQYDyq",
-    callback: function (token) {
-      console.log(`Challenge Success ${token}`);
-        setTimeout((){
-            document.querySelector(".container").style.display = "flex";
-            document.getElementById("myWidget").style.display = none "none";
-        }, 2000);
-            
-    },
-  });
-};
 </script>
 </body>
 </html>
