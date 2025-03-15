@@ -6,7 +6,10 @@
     <title>Bobtony.de</title>
      <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script
+  src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback"
+  defer
+></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
         html,
@@ -33,7 +36,15 @@ body {
   bottom: 30px;
   font-size: 17px;
 }
-
+.container { 
+display: none; 
+align-items: center; 
+justify-content: center; 
+width: 90vw; 
+height: 85vh; 
+background-color: white; 
+flex-direction: row; 
+}
 #snackbar.show {
   visibility: visible;
   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
@@ -63,6 +74,8 @@ body {
     
 </head>
 <body class="background" onload="onload()">
+    <div class"container"></div>
+<div id="myWidget"></div> 
       <div
   class="cf-turnstile"
   data-sitekey="0x4AAAAAABA5K1oArqzQYDyq"
@@ -82,6 +95,19 @@ document.getElementById("snackbar").innerHTML =
 function onload() {
 snackbar()
 }
+    window.onloadTurnstileCallback = function () {
+  turnstile.render("#myWidget", {
+    sitekey: "0x4AAAAAABA5K1oArqzQYDyq",
+    callback: function (token) {
+      console.log(`Challenge Success ${token}`);
+        setTimeout((){
+            document.querySelector(".container").style.display = "flex";
+            document.getElementById("myWidget").style.display = none "none";
+        }, 2000);
+            
+    },
+  });
+};
 </script>
 </body>
 </html>
