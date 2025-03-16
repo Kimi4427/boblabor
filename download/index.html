@@ -35,14 +35,27 @@
   data-error-callback="onError"
   data-size="compact"
 ></div>
-        <button class="g-recaptcha downlbtn" 
+        <form id="contactForm" method="post" action="">
+    <!-- Form fields -->
+    <div class="input-group">
+        <input type="text" name="name" value="" placeholder="Your name">
+    </div>
+    <div class="input-group">	
+        <input type="email" name="email" value="" placeholder="Your email">
+    </div>
+    <div class="input-group">
+        <textarea name="message" placeholder="Type message..."></textarea>
+    </div>
+
+    <input type="hidden" name="submit_frm" value="1">
+    
+    <!-- Submit button with reCAPTCHA trigger -->
+    <button class="g-recaptcha downlbtn" 
         data-sitekey="6LehM_YqAAAAAOUDwetpCsOdTOUiO8JUjZunV-Ut" 
         data-callback='onSubmit' 
-        data-action='submit'
-        onclick="onClick(e)" >
-        <i class="fa fa-download">
+        data-action='submit'><i class="fa fa-download">
         </i> Download</button>
-<div id="snackbar">Current page: download</div>
+</form>
 </div>
 <script src="main.js"></script>
 
