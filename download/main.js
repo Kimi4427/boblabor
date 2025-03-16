@@ -26,3 +26,7 @@ document.getElementById("snackbar").innerHTML =
   x.className = "show";
   setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 }
+  var yourFunction = function () {
+    console.log('hCaptcha is ready.');
+    var widgetID = hcaptcha.render('captcha-1', { sitekey: 'your_site_key' });
+  };
