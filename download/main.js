@@ -1,32 +1,54 @@
-window.onloadTurnstileCallback = function () {
-  turnstile.render('#myWidget', {
-    sitekey: '0x4AAAAAABA5K1oArqzQYDyq',
-    callback: function (token) {
-      console.log(`Challenge Success ${token}`);
-      setTimeout(function () {
-        document.querySelector('.container').style.display = 'flex';
-        document.getElementById('myWidget').style.display = 'none';
-        snackbar()
-      }, 2000);
-    },
-  });
-};
+document.addEventListener("DOMContentLoaded", function () {
+    initTurnstile();
+    initHCaptcha();
+    initReCaptcha();
+});
 
-hcaptcha.render('h-captcha', // string: ID of target div to render into
-  {
-    sitekey: '80cae61a-2fd6-4bf8-bd34-985242f277ca',
-    theme: 'dark', // (for example)
-    'error-callback': 'onError', // (for example) string: name of function
-  });
-
-function snackbar() {
-document.getElementById("snackbar").innerHTML = 
-"Current page:<br>" + window.location.href;
-  var x = document.getElementById("snackbar");
-  x.className = "show";
-  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+function initTurnstile() {
+    window.onloadTurnstileCallback = function () {
+        turnstile.render('#myWidget', {
+            sitekey: '0x4AAAAAABA5K1oArqzQYDyq',
+            callback: function (token) {
+                console.log(`Turnstile Challenge Success: ${token}`);
+                enableDownloadButton();
+            },
+        });
+    };
 }
-  var yourFunction = function () {
-    console.log('hCaptcha is ready.');
-    var widgetID = hcaptcha.render('captcha-1', { sitekey: '80cae61a-2fd6-4bf8-bd34-985242f277ca' });
-  };
+
+function initHCaptcha() {
+    window.yourFunction = function () {
+        console.log('hCaptcha is ready.');
+        hcaptcha.render('h-captcha', {
+            sitekey: '80cae61a-2fd6-4bf8-bd34-985242f277ca',
+            theme: 'dark',
+            'error-callback': 'onError',
+        });
+    };
+}
+
+function initReCaptcha() {
+    grecaptcha.ready(function () {
+        grecaptcha.execute('6LehM_YqAAAAAOUDwetpCsOdTOUiO8JUjZunV-Ut', { action: 'submit' })
+            .then(function (token) {
+                console.log(`reCAPTCHA Success: ${token}`);
+                enableDownloadButton();
+            });
+    });
+}
+
+function enableDownloadButton() {
+    document.getElementById("downloadButton").removeAttribute("disabled");
+}
+
+document.getElementById("downloadButton").addEventListener("click", function (e) {
+    e.preventDefault();
+    showSnackbar("Download wird gestartet...");
+});
+
+function showSnackbar(message) {
+    let snackbar = document.getElementById("snackbar");
+    snackbar.innerHTML = message;
+    snackbar.className = "show";
+    setTimeout(() => snackbar.className = snackbar.className.replace("show", ""), 3000);
+}
