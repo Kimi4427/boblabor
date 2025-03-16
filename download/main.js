@@ -28,5 +28,5 @@ document.getElementById("snackbar").innerHTML =
 }
   var yourFunction = function () {
     console.log('hCaptcha is ready.');
-    var widgetID = hcaptcha.render('captcha-1', { sitekey: 'your_site_key' });
+    var widgetID = hcaptcha.render('captcha-1', { sitekey: '80cae61a-2fd6-4bf8-bd34-985242f277ca' });
   };
