@@ -10,3 +10,10 @@ window.onloadTurnstileCallback = function () {
     },
   });
 };
+
+hcaptcha.render('h-captcha', // string: ID of target div to render into
+  {
+    sitekey: '80cae61a-2fd6-4bf8-bd34-985242f277ca',
+    theme: 'dark', // (for example)
+    'error-callback': 'onError', // (for example) string: name of function
+  });
