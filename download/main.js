@@ -33,7 +33,3 @@ document.getElementById("snackbar").innerHTML =
   };
 
 
-   function onSubmit(token) {
-    document.getElementById("downloadbtn").submit();
-}
-}
