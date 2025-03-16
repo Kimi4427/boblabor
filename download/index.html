@@ -45,43 +45,8 @@
 <div id="snackbar">Current page: download</div>
 </div>
 <script src="main.js"></script>
- <script>
-   function onSubmit(token) {
-     document.getElementById("demo-form").submit();
-   }
- </script>
-   <script>
-function onClick(e) {
-    e.preventDefault();  // Prevent the default form submission or button action
 
-    // Make sure grecaptcha is ready and execute the reCAPTCHA challenge
-    grecaptcha.ready(function() {
-        grecaptcha.execute('80cae61a-2fd6-4bf8-bd34-985242f277ca', { action: 'submit' })
-        .then(function(token) {
-            // Example: You can now send the token to your backend server
-            // For example, submitting the token to your server along with form data
 
-            const formData = new FormData(document.querySelector('form')); // Replace with your form element
-            formData.append('g-recaptcha-response', token);  // Append the reCAPTCHA token to the form data
-
-            fetch('/your-backend-endpoint', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Handle the response from your backend server here
-                console.log('Success:', data);
-            })
-            .catch(error => {
-                // Handle errors here
-                console.error('Error:', error);
-            });
-        });
-    });
-}
-
-  </script>
 
 </body>
 </html>
