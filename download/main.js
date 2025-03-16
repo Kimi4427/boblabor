@@ -6,6 +6,7 @@ window.onloadTurnstileCallback = function () {
       setTimeout(function () {
         document.querySelector('.container').style.display = 'flex';
         document.getElementById('myWidget').style.display = 'none';
+        btn.setAttribute("disabled", true);
         snackbar()
       }, 2000);
     },
