@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -112,7 +111,12 @@ flex-direction: row;
   src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onloadTurnstileCallback"
   defer
 ></script>
-
+    
+<script
+  src="https://js.hcaptcha.com/1/api.js?hl=es&onload=yourFunction&render=explicit"
+  async
+  defer
+></script>
 
     
 </head>
@@ -122,6 +126,13 @@ flex-direction: row;
       <div class="cf-turnstile" data-sitekey="0x4AAAAAABA5K1oArqzQYDyq" data-callback="javascriptCallback" ></div>
     <div class="container">
         <button onclick="window.location.href='https://github.com/Kimi4427/boblabor/raw/refs/heads/main/download/BobTony-69.420.jar';" class="downlbtn"><i class="fa fa-download"></i> Download</button>
+        <div
+  id="h-captcha"
+  class="h-captcha"
+  data-sitekey="80cae61a-2fd6-4bf8-bd34-985242f277ca"
+  data-theme="dark"
+  data-error-callback="onError"
+></div>
 <div id="snackbar">Current page: download</div>
 </div>
 <script>
