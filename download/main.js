@@ -6,6 +6,7 @@ window.onloadTurnstileCallback = function () {
       setTimeout(function () {
         document.querySelector('.container').style.display = 'flex';
         document.getElementById('myWidget').style.display = 'none';
+        snackbar()
       }, 2000);
     },
   });
@@ -17,3 +18,11 @@ hcaptcha.render('h-captcha', // string: ID of target div to render into
     theme: 'dark', // (for example)
     'error-callback': 'onError', // (for example) string: name of function
   });
+
+function snackbar() {
+document.getElementById("snackbar").innerHTML = 
+"Current page:<br>" + window.location.href;
+  var x = document.getElementById("snackbar");
+  x.className = "show";
+  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
