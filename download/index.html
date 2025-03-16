@@ -135,18 +135,6 @@ flex-direction: row;
         <button onclick="window.location.href='https://github.com/Kimi4427/boblabor/raw/refs/heads/main/download/BobTony-69.420.jar';" class="downlbtn"><i class="fa fa-download"></i> Download</button>
 <div id="snackbar">Current page: download</div>
 </div>
-<script>
-function snackbar() {
-document.getElementById("snackbar").innerHTML = 
-"Current page:<br>" + window.location.href;
-  var x = document.getElementById("snackbar");
-  x.className = "show";
-  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-}
-function onload() {
-snackbar()
-}
-</script>
 <script src="main.js"></script>
 
 </body>
