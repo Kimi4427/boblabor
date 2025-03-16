@@ -18,7 +18,7 @@
   defer
 ></script>
     
-<script src="https://www.google.com/recaptcha/api.js"></script>
+<script src="https://www.google.com/recaptcha/api.js?render=80cae61a-2fd6-4bf8-bd34-985242f277ca"></script>
 
 
     
@@ -35,21 +35,6 @@
   data-error-callback="onError"
   data-size="compact"
 ></div>
-        <form id="contactForm" method="post" action="">
-    <!-- Form fields -->
-    <div class="input-group">
-        <input type="text" name="name" value="" placeholder="Your name">
-    </div>
-    <div class="input-group">	
-        <input type="email" name="email" value="" placeholder="Your email">
-    </div>
-    <div class="input-group">
-        <textarea name="message" placeholder="Type message..."></textarea>
-    </div>
-
-    <input type="hidden" name="submit_frm" value="1">
-    
-    <!-- Submit button with reCAPTCHA trigger -->
     <button class="g-recaptcha downlbtn" 
         data-sitekey="6LehM_YqAAAAAOUDwetpCsOdTOUiO8JUjZunV-Ut" 
         data-callback='onSubmit' 
