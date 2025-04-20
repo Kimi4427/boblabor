@@ -1,1 +1,129 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bobtony.de</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+        html, body {
+            font-family: "Pixelify Sans", sans-serif;
+            margin: 0;
+            height: 100%;
+        }
+        #myWidget {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 90vw;
+            height: 85vh;
+            background-color: white;
+        }
+        #snackbar {
+            visibility: hidden;
+            min-width: 250px;
+            margin-left: -125px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 2px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1;
+            left: 50%;
+            bottom: 30px;
+            font-size: 17px;
+        }
+        .downlbtn {
+            background-color: DodgerBlue;
+            border: none;
+            color: white;
+            padding: 12px 30px;
+            cursor: pointer;
+            font-size: 20px;
+            border-radius: 4px;
+        }
+        .downlbtn:hover {
+            background-color: RoyalBlue;
+            animation: shake 0.5s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+        .container { 
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 90vw;
+            height: 85vh;
+            background-color: white;
+        }
+        #snackbar.show {
+            visibility: visible;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+        @keyframes fadein {
+            from {bottom: 0; opacity: 0;} 
+            to {bottom: 30px; opacity: 1;}
+        }
+        @keyframes fadeout {
+            from {bottom: 30px; opacity: 1;} 
+            to {bottom: 0; opacity: 0;}
+        }
+    </style>
+</head>
+<body>
+    <div id="myWidget"></div>
+    <div class="cf-turnstile" data-sitekey="0x4AAAAAABA5K1oArqzQYDyq" data-callback="onTurnstileCallback"></div>
+    <div class="container">
+        <div class="h-captcha" data-sitekey="80cae61a-2fd6-4bf8-bd34-985242f277ca" data-theme="dark" data-size="compact"></div>
+        <button class="downlbtn" onclick="downloadClick()">
+            <i class="fa fa-download"></i> Add the AAirMusic/radio Discord Bot
+        </button>
+    </div>
+    <div id="snackbar"></div>
+
+    <script src="https://www.google.com/recaptcha/api.js?render=80cae61a-2fd6-4bf8-bd34-985242f277ca"></script>
+    <script src="https://js.hcaptcha.com/1/api.js?onload=onFunctionLoad&render=explicit" async defer></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onTurnstileCallback" defer></script>
+    
+    <script>
+        function onTurnstileCallback(token) {
+            console.log(`Turnstile verification success: ${token}`);
+            setTimeout(function () {
+                document.querySelector('.container').style.display = 'flex';
+                document.getElementById('myWidget').style.display = 'none';
+                snackbar();
+            }, 2000);
+        }
+
+        function snackbar() {
+            document.getElementById("snackbar").innerHTML = "Verification Successful!";
+            var x = document.getElementById("snackbar");
+            x.className = "show";
+            setTimeout(function() { x.className = x.className.replace("show", ""); }, 3000);
+        }
+
+        function downloadClick() {
+            window.location.href = "https://discord.com/oauth2/authorize?client_id=1363447698132303872&permissions=3148800&redirect_uri=https%3A%2F%2Fdiscord.com%2Foauth2%2Fauthorize%3Fclient_id%3D1363447698132303872&integration_type=0&scope=bot";
+        }
+
+        // hCaptcha onload function
+        function onFunctionLoad() {
+            console.log('hCaptcha is ready.');
+        }
+    </script>
+</body>
+</html>
